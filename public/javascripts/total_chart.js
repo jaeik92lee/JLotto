@@ -1,5 +1,5 @@
-drawMixedChart = (legends, sum_datas, avg_datas) => {
-    new Chart(document.getElementById("mixed-chart"), {
+drawTotalChart = (legends, sum_datas, avg_datas) => {
+    new Chart(document.getElementById("total-chart"), {
         type: 'bar',
         data: {
             labels: legends,
@@ -12,7 +12,7 @@ drawMixedChart = (legends, sum_datas, avg_datas) => {
             }, {
                 label: "SUM",
                 type: "bar",
-                backgroundColor: "rgba(0,0,0,0.2)",
+                backgroundColor: "rgba(0,0,0,0.5)",
                 backgroundColorHover: "#3e95cd",
                 data: sum_datas
             }]
@@ -80,5 +80,5 @@ getLegends = () => {
         sum_datas   = getSumTotal(),
         avg_datas   = getAvgTotal();
 
-    drawMixedChart(legends, sum_datas, avg_datas);
+    drawTotalChart(legends, sum_datas, avg_datas);
 }());

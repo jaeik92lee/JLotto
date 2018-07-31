@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var lotto = require('./../models/LottoVO');
 
+/************************
+ *      TOTAL DATA      *
+ ************************/
 router.get('/sum/total', function(req, res, next) { 
   lotto.getSumTotal([], function(err, rows) {
     if(err) res.json(err);
@@ -9,16 +12,12 @@ router.get('/sum/total', function(req, res, next) {
   });
 });
 
-router.get("/sum/tentime", function(req, res, next) {});
-
 router.get("/avg/total", function(req, res, next) {
   lotto.getAvgTotal([], function(err, rows) {
     if(err) res.json(err);
     else res.json(rows);
   });
 });
-
-router.get("/avg/tentimes", function(req, res, next) {});
 
 router.get("/getall", function(req, res, next) {
   lotto.getAll([], function(err, rows) {
@@ -33,6 +32,32 @@ router.get("/legends", function(req, res, next) {
     else res.json(rows);
   });
 });
+
+
+/************************
+ *    TEN TIMES DATA    *
+ ************************/
+router.get("/legends/tentimes", function(req, res, next) {
+  lotto.getTentimesLegends([], function(err, rows) {
+    if(err) res.json(err);
+    else res.json(rows);
+  });
+});
+
+router.get("/oddeven/tentimes", function(req, res, next) {
+  lotto.getTentimesOddEven([], function(err, rows) {
+    if(err) res.json(err);
+    else res.json(rows);
+  });
+});
+
+router.get("/lowhigh/tentimes", function(req, res, next) {
+  lotto.getTenTimesLowHigh([], function(err, rows) {
+    if(err) res.json(err);
+    else res.json(rows);
+  });
+});
+
 
 
 router.get('/no', function(req, res, next) {

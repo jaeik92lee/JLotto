@@ -2,6 +2,28 @@ const   SUM_IDX_COUNT = 30,
         START_LEGEND = 0,
         END_LEGEND = 300;
 
+drawSumChart = (legends, sum_datas, colors) => {
+    new Chart(document.getElementById("sum-chart"), {
+        type: 'bar',
+        data: {
+            labels: legends,
+            datasets: [{
+                data: sum_datas,
+                backgroundColor: colors,
+                borderColor: colors,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'Total Sum(Lotto Num) Count'
+            }
+        }
+    });
+}
+
 initSumResult = () => {
     var result = [];    
     for ( var i=0 ; i<SUM_IDX_COUNT ; i++ ) 
@@ -51,32 +73,10 @@ getLegends = () => {
     return result;
 }
 
-drawBarChart = (legends, sum_datas, colors) => {
-    new Chart(document.getElementById("bar-chart"), {
-        type: 'bar',
-        data: {
-            labels: legends,
-            datasets: [{
-                data: sum_datas,
-                backgroundColor: colors,
-                borderColor: colors,
-                borderWidth: 1
-            }]
-        },
-        options: {
-            legend: { display: false },
-            title: {
-                display: true,
-                text: 'Total Sum(Lotto Num) Count'
-            }
-        }
-    });
-}
-
 (function (){
     var legends     = getLegends(),
         sum_datas   = getSumTotal(),
         colors      = setBackgroundColor();
 
-    drawBarChart(legends, sum_datas, colors);
+    drawSumChart(legends, sum_datas, colors);
 }());

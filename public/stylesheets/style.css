@@ -6,20 +6,3 @@ body {
 a {
   color: #00B7FF;
 }
-
-.chartWrapper {
-  position: relative;
-}
-
-.chartWrapper > canvas {
-  position: absolute;
-  left: 0;
-  top: 0;
-  pointer-events:none;
-}
-
-.chartAreaWrapper {
-  max-width: 2560px;
-  max-height: 500px;
-  overflow-x: scroll;
-}
