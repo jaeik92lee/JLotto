@@ -24,17 +24,28 @@ var LottoVO = {
 
     getSumTotal: function(params, callback) {
         return db.query(
-            "select sum from lotto_nums;", params, callback)
+            "select                 \
+                lorder as legend,    \
+                sum                 \
+            from                    \
+                lotto_nums;", params, callback)
     },
 
     getAvgTotal: function(params, callback) {
         return db.query(
-            "select lavg as avg from lotto_nums", params, callback);
+            "select                 \
+                lorder as legend,    \
+                lavg as avg         \
+            from                    \
+                lotto_nums", params, callback);
     },
 
     getLegend: function(params, callback) {
         return db.query(
-            "select lorder as legend from lotto_nums;", params, callback);
+            "select                 \
+                lorder as legend    \
+            from                    \
+                lotto_nums;", params, callback);
     },
 
     getAll: function(params, callback) {

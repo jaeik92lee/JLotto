@@ -1,38 +1,84 @@
-(function (){
+drawMixedChart = (legends, sum_datas, avg_datas) => {
+    new Chart(document.getElementById("mixed-chart"), {
+        type: 'bar',
+        data: {
+            labels: legends,
+            datasets: [{
+                label: "AVG",
+                type: "line",
+                borderColor: "#8e5ea2",
+                data: avg_datas,
+                fill: false
+            }, {
+                label: "SUM",
+                type: "bar",
+                backgroundColor: "rgba(0,0,0,0.2)",
+                backgroundColorHover: "#3e95cd",
+                data: sum_datas
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Population growth (millions): Europe & Africa'
+            },
+            legend: { display: false },
+        }
+    });
+}
+
+getSumTotal = () => {
+    var result = [];
+    
     $.ajax({ 
         type: "GET",
         dataType: "json",
-        url: "/lotto/getall",
+        async: false,
+        url: "/lotto/sum/total",
         success: function(lottos){
-            console.log("[ MIXED CHART ]");
-            console.log(lottos);
-
-            new Chart(document.getElementById("mixed-chart"), {
-                type: 'bar',
-                data: {
-                    labels: ["1900", "1950", "1999", "2050"],
-                    datasets: [{
-                        label: "Europe",
-                        type: "line",
-                        borderColor: "#8e5ea2",
-                        data: [408,547,675,734],
-                        fill: false
-                    }, {
-                        label: "Africa",
-                        type: "bar",
-                        backgroundColor: "rgba(0,0,0,0.2)",
-                        backgroundColorHover: "#3e95cd",
-                        data: [133,221,783,2478]
-                    }]
-                },
-                options: {
-                    title: {
-                        display: true,
-                        text: 'Population growth (millions): Europe & Africa'
-                    },
-                    legend: { display: false }
-                }
-            });
+            lottos.map(function(sum) { result.push(sum.sum); });
         }
     });
+
+    return result;
+}
+
+getAvgTotal = () => {
+    var result = [];
+    
+    $.ajax({ 
+        type: "GET",
+        dataType: "json",
+        async: false,
+        url: "/lotto/avg/total",
+        success: function(lottos){ 
+            lottos.map(function(avg) { result.push(avg.avg); });
+        }
+    });
+
+    return result;
+}
+
+getLegends = () => {
+    var result = [];
+    
+    $.ajax({ 
+        type: "GET",
+        dataType: "json",
+        async: false,
+        url: "/lotto/legends",
+        success: function(lottos){ 
+            lottos.map(function(legend) { result.push(legend.legend); });
+        }
+    });
+
+    return result;
+}
+
+(function (){
+    var legends     = getLegends(),
+        sum_datas   = getSumTotal(),
+        avg_datas   = getAvgTotal();
+
+    drawMixedChart(legends, sum_datas, avg_datas);
 }());

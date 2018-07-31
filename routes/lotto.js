@@ -27,6 +27,13 @@ router.get("/getall", function(req, res, next) {
   });
 });
 
+router.get("/legends", function(req, res, next) {
+  lotto.getLegend([], function(err, rows) {
+    if(err) res.json(err);
+    else res.json(rows);
+  });
+});
+
 
 router.get('/no', function(req, res, next) {
   lotto.getNoOrder([], function(err, rows) {
