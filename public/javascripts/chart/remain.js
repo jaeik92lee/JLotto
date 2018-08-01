@@ -1,4 +1,4 @@
-var remain_chart = (function() {
+var remain_chart = (function(window) {
     const   START_LOTTO_NUM = 1,
             END_LOTTO_NUM = 45,
             COLOR_COUNT = 45;
@@ -95,17 +95,19 @@ var remain_chart = (function() {
         return result;
     }
 
-    draw = () => {
-        var colors          = setBackgroundColor(),
-            legends         = getLegends(),
-            tentimes_lotto  = getTentimesLotto(),
-            remain_datas    = getRemainData(tentimes_lotto);
-            
 
+    var colors          = setBackgroundColor(),
+        legends         = getLegends(),
+        tentimes_lotto  = getTentimesLotto(),
+        remain_datas    = getRemainData(tentimes_lotto);
+
+    draw = () => {            
         drawRemainChart(legends, remain_datas, colors);
     }
 
+    window.remain_datas = remain_datas;
     return { draw }
-}());
+
+}(window));
 
 remain_chart.draw();

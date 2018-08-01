@@ -81,9 +81,38 @@ var recommend = (function(){
 
     run = () => {
         var sum_start = 130,
-            sum_end = 139;
+            sum_end = 139,
+            low = 5,
+            high = 1,
+            odd = 2,
+            even = 4;
 
+        var params = {
+            sum_start,
+            sum_end,
+            low,
+            high,
+            odd,
+            even
+        }
+
+        var nums = [];
         
+        $.ajax({ 
+            type: "POST",
+            url: "/recommend/getall",
+            data: JSON.stringify(params),
+            contentType: "application/json",             
+            async: false,
+            dataType: "json",                    
+            success: function(result){ 
+                nums = result;        
+            }
+        });
+
+        console.log("[ RECOMMEND NUMS ]");
+        console.log(nums);
+        console.log(window.remain_datas);        
     }
 
     return { run }
