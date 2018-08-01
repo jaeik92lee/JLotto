@@ -6,6 +6,7 @@
     "start": "NODE_ENV=development nodemon ./bin/www"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cheerio-httpcli": "^0.7.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",

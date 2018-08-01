@@ -18,7 +18,7 @@ var RecommendVO = {
                     high,           \
                     odd,            \
                     even)           \
-                 values(?)", [params], callback);
+                 values ?", [params], callback);
     }    
  };
 

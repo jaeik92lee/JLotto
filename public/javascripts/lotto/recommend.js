@@ -39,7 +39,9 @@ var recommend = (function(){
             recommend_nums = [],
             i1, i2, i3, i4, i5, i6;
         
+        const TEMP_RECOMMEND_NUM = 19;
         for( i1=START_NUM ; i1<=(END_NUM - (COUNT-1)) ; i1++ ) {
+        // for( i1=TEMP_RECOMMEND_NUM ; i1<=TEMP_RECOMMEND_NUM ; i1++ ) {
             for( i2=i1+1 ; i2<=(END_NUM - (COUNT-2)) ; i2++ ) {
                 for( i3=i2+1 ; i3<=(END_NUM - (COUNT-3)) ; i3++ ) {
                     for( i4=i3+1 ; i4<=(END_NUM - (COUNT-4)) ; i4++ ) {
@@ -64,8 +66,22 @@ var recommend = (function(){
         return recommend_nums;
     }
 
-    run = () => {
+    insertRecommend = () => {
         var recommend_result = setAllCase();
+
+        $.ajax({ 
+            type: "POST",
+            data: JSON.stringify(recommend_result),
+            contentType: "application/json",             
+            dataType: "json",            
+            url: "/recommend/insert",
+            success: function(result){ }
+        });
+    }
+
+    run = () => {
+        var sum_start = 130,
+            sum_end = 139;
 
         
     }
