@@ -1,9 +1,7 @@
 var client = require('cheerio-httpcli');
 var LottoVO = require('./../models/LottoVO');
 
-var order_list = [],
-    result = [],    
-    params = [],
+var params = [],
     url = "http://nlotto.co.kr/gameResult.do";
 
 var nums = [ 0, 0, 0, 0, 0, 0 ],
@@ -11,11 +9,8 @@ var nums = [ 0, 0, 0, 0, 0, 0 ],
     i, get_num, win_numbers;
 
 const   MAX_COUNT = 6,
-        CONST_START_ORDER = 801,
+        CONST_START_ORDER = 1,
         CONST_FINISH_ORDER = 817;
-const init = () => {
-    for( var i=CONST_START_ORDER ; i<=CONST_FINISH_ORDER ; i++ ) order_list.push(i);    
-}
 
 let printHttpResponse = (keyword) => client.fetch (url, { 
     "method": "byWin",
@@ -61,23 +56,14 @@ let printHttpResponse = (keyword) => client.fetch (url, {
             even
         ];
 
+        console.log(params);
         LottoVO.insertLotto(params, function(err, rows) { });
     }
 })
 
-
-let getLottoNums = () => {
-    console.log("[ GET LOTTO NUMBERS ]");
-    order_list.map(function (keyword) {
-        printHttpResponse(keyword);
-    });
-}
-
 var lotto_crawler = {
-    run: () => {
-        console.log("[ START LOTTO CRAWER ]");
-        init();
-        getLottoNums();
+    run: (order) => {
+        printHttpResponse(order);
     }
 }
 

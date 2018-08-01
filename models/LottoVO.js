@@ -85,23 +85,20 @@ var LottoVO = {
             limit " + TEN_TIMES_COUNT, params, callback);
     },
 
-    getAll: function(params, callback) {
+    getTenTimesRemain: function(params, callback) {
         return db.query(
-            "select     \
-                num_1,  \
-                num_2,  \
-                num_3,  \
-                num_4,  \
-                num_5,  \
-                num_6,  \
-                sum,    \
-                lavg,    \
-                low,    \
-                high,   \
-                odd,    \
-                even    \
-            from        \
-                lotto_nums;", params, callback);
+            "select         \
+                num_1,      \
+                num_2,      \
+                num_3,      \
+                num_4,      \
+                num_5,      \
+                num_6       \
+            from            \
+                lotto_nums  \
+            order by        \
+                lorder desc \
+            limit " + TEN_TIMES_COUNT, params, callback);
     },
 
     getNoOrder: function(params, callback) {
@@ -110,38 +107,7 @@ var LottoVO = {
                 lorder  \
             from        \
                 lotto_nums", params, callback);
-    },
-
-    /*
-        var sql = "INSERT INTO Test (name, email, n) VALUES ?";
-        var values = [
-            ['demian', 'demian@gmail.com', 1],
-            ['john', 'john@gmail.com', 2],
-            ['mark', 'mark@gmail.com', 3],
-            ['pete', 'pete@gmail.com', 4]
-        ];
-    */
-
-    getAllComments: function(callback){
-        return db.query("select * from comments;", callback);
-    },
- 
-    getCommentsByWriter: function(writer, callback) {
-        return db.query("select * from comments where writer = ?", [writer], callback);
-    },
-
-    addComments: function(params, callback) {
-        return db.query("insert into comments(writer, comment) values(?, ?);", params, callback);
-    },
-    
-    deleteComments: function(id, callback) {
-        return db.query("delete from comments where id = ?;",[id], callback);
-    },
- 
-    updateComments: function(id, params, callback) {
-        params.push(id);
-        return db.query("update comments set writer = ?, comment = ? where id = ?;", params, callback);
-    },
+    }
  };
 
  module.exports = LottoVO;

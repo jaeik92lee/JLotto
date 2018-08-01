@@ -19,13 +19,6 @@ router.get("/avg/total", function(req, res, next) {
   });
 });
 
-router.get("/getall", function(req, res, next) {
-  lotto.getAll([], function(err, rows) {
-    if(err) res.json(err);
-    else res.json(rows);
-  });
-});
-
 router.get("/legends", function(req, res, next) {
   lotto.getLegend([], function(err, rows) {
     if(err) res.json(err);
@@ -53,6 +46,13 @@ router.get("/oddeven/tentimes", function(req, res, next) {
 
 router.get("/lowhigh/tentimes", function(req, res, next) {
   lotto.getTenTimesLowHigh([], function(err, rows) {
+    if(err) res.json(err);
+    else res.json(rows);
+  });
+});
+
+router.get("/remain/tentimes", function(req, res, next) {
+  lotto.getTenTimesRemain([], function(err, rows) {
     if(err) res.json(err);
     else res.json(rows);
   });
