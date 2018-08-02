@@ -37,12 +37,19 @@ var remain_chart = (function(window) {
 
     setBackgroundColor = () => {
         var result = [];
+
         for( var i=0 ; i<COLOR_COUNT ; i=i+5 ) {
             result.push("rgba(255, 99, 132, 0.2)");
             result.push("rgba(54, 162, 235, 0.2)");
             result.push("rgba(255, 206, 86, 0.2)");
             result.push("rgba(75, 192, 192, 0.2)");
             result.push("rgba(153, 102, 255, 0.2)");
+        }
+        
+        for( var i=0 ; i<remain_datas.length ; i++ ) {            
+            if( remain_datas[i] == REMAIN_HEIGHT ) {
+                result[i] = "rgba(255, 0, 0, 0.6)";
+            }
         }
 
         return result;
@@ -78,7 +85,7 @@ var remain_chart = (function(window) {
             if( tentimes_data[i] == 0 ) {
                 result.push(REMAIN_HEIGHT);
             } else {
-                result.push(NOT_REMAIN_HEIGHT);
+                result.push(tentimes_data[i]);
             }
         }
 
@@ -96,17 +103,21 @@ var remain_chart = (function(window) {
     }
 
 
-    var colors          = setBackgroundColor(),
-        legends         = getLegends(),
-        tentimes_lotto  = getTentimesLotto(),
-        remain_datas    = getRemainData(tentimes_lotto);
+    var tentimes_lotto  = getTentimesLotto(),
+        remain_datas    = getRemainData(tentimes_lotto),
+        colors          = setBackgroundColor(),
+        legends         = getLegends();
+        
 
     draw = () => {            
         drawRemainChart(legends, remain_datas, colors);
     }
 
-    window.remain_datas = remain_datas;
-    return { draw }
+    return { 
+        draw,
+        remain_datas,
+        REMAIN_HEIGHT
+    }
 
 }(window));
 

@@ -80,6 +80,17 @@ var recommend = (function(){
     }
 
     run = () => {
+
+        var result = [],
+            except_nums = [],
+            temp_remain_datas = remain_chart.remain_datas;
+
+        for( var i=0 ; i<temp_remain_datas.length ; i++ ) {
+            if(temp_remain_datas[i] == remain_chart.REMAIN_HEIGHT ) {
+                except_nums.push(i + 1);
+            }
+        }
+
         var sum_start = 130,
             sum_end = 139,
             low = 5,
@@ -110,12 +121,31 @@ var recommend = (function(){
             }
         });
 
-        console.log("[ RECOMMEND NUMS ]");
-        console.log(nums);
-        console.log(window.remain_datas);        
+        var isException = false;
+
+        for( var i=0 ; i<nums.length ; i++ ) {
+            isException = false;
+            for( var j=0 ; j<except_nums.length ; j++ ) {
+                if( nums[i].num_1 == except_nums[j] ) isException = true;
+                else if( nums[i].num_2 == except_nums[j] ) isException = true;
+                else if( nums[i].num_3 == except_nums[j] ) isException = true;
+                else if( nums[i].num_4 == except_nums[j] ) isException = true;
+                else if( nums[i].num_5 == except_nums[j] ) isException = true;
+                else if( nums[i].num_6 == except_nums[j] ) isException = true;
+
+                if( isException ) break;
+            }
+
+            if( !isException ) result.push(nums[i]);
+        }
+
+        return result;
     }
 
     return { run }
 }());
 
-recommend.run();
+var recommend_result = recommend.run();
+
+console.log("[ RECOMMEND NUMS ]");
+console.log(recommend_result);
