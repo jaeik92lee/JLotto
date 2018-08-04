@@ -93,8 +93,8 @@ var recommend = (function(){
 
         var sum_start = 130,
             sum_end = 139,
-            low = 5,
-            high = 1,
+            low = 4,
+            high = 2,
             odd = 2,
             even = 4;
 

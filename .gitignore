@@ -28,3 +28,9 @@ benchmarks/graphs
 
 # config
 config/
+
+# scripts
+*.sh
+
+# database information
+database.md
