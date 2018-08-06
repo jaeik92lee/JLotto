@@ -57,13 +57,20 @@ let printHttpResponse = (keyword) => client.fetch (url, {
         ];
 
         console.log(params);
-        LottoVO.insertLotto(params, function(err, rows) { });
+        return params;
+        // LottoVO.insertLotto(params, function(err, rows) { });
     }
 })
 
 var lotto_crawler = {
-    run: (order) => {
-        printHttpResponse(order);
+    run: () => {
+        var result = [];
+        for( var i=CONST_START_ORDER ; i<=CONST_FINISH_ORDER ; i++ ) {
+            result.push(printHttpResponse(i));
+        }        
+
+        console.log("[ RESULT ]");
+        console.log(result);
     }
 }
 

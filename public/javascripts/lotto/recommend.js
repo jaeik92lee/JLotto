@@ -91,12 +91,12 @@ var recommend = (function(){
             }
         }
 
-        var sum_start = 130,
-            sum_end = 139,
-            low = 4,
-            high = 2,
-            odd = 2,
-            even = 4;
+        var sum_start = 140,
+            sum_end = 149,
+            low = 2,
+            high = 4,
+            odd = 3,
+            even = 3;
 
         var params = {
             sum_start,

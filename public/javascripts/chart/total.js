@@ -70,6 +70,7 @@ var total_chart = (function (){
             async: false,
             url: "/lotto/legends",
             success: function(lottos){ 
+                if( lottos.length == 0 ) return;
                 lottos.map(function(legend) { result.push(legend.legend); });
             }
         });

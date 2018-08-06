@@ -9,12 +9,12 @@ var LottoVO = {
             "insert into    \
                 lotto_nums(      \
                     lorder,  \
-                    num_1,  \
-                    num_2,  \
-                    num_3,  \
-                    num_4,  \
-                    num_5,  \
-                    num_6,  \
+                    num1,  \
+                    num2,  \
+                    num3,  \
+                    num4,  \
+                    num5,  \
+                    num6,  \
                     sum,    \
                     lavg,    \
                     low,    \
@@ -61,6 +61,28 @@ var LottoVO = {
             limit " + TEN_TIMES_COUNT, params, callback);
     },
 
+    getTentimesDatas: function(params, callback) {
+        return db.query(
+            "select     \
+                num1,   \
+                num2,   \
+                num3,   \
+                num4,   \
+                num5,   \
+                num6,   \
+                sum,    \
+                lavg,    \
+                low,    \
+                high,   \
+                odd,    \
+                even    \
+            from        \
+                lotto_nums  \
+            order by        \
+                lorder  desc    \
+            limit " + TEN_TIMES_COUNT, params, callback);
+    },
+
     getTentimesOddEven: function(params, callback) {
         return db.query(
             "select         \
@@ -88,12 +110,12 @@ var LottoVO = {
     getTenTimesRemain: function(params, callback) {
         return db.query(
             "select         \
-                num_1,      \
-                num_2,      \
-                num_3,      \
-                num_4,      \
-                num_5,      \
-                num_6       \
+                num1,      \
+                num2,      \
+                num3,      \
+                num4,      \
+                num5,      \
+                num6       \
             from            \
                 lotto_nums  \
             order by        \
@@ -107,7 +129,10 @@ var LottoVO = {
                 lorder  \
             from        \
                 lotto_nums", params, callback);
-    }
+    },
+
+
+
  };
 
  module.exports = LottoVO;

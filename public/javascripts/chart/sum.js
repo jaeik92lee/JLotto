@@ -56,6 +56,7 @@ var sum_chart = (function (){
             async: false,
             url: "/lotto/sum/total",
             success: function(lottos){
+                if( lottos.length == 0 ) return;
                 lottos.map(function(sum) { 
                     result[ Math.floor(sum.sum / 10) ]++;
                 });

@@ -1,7 +1,18 @@
 .page-wrapper {
     padding-top: 30px;
+    margin: 0px !important;
 }
 
 .container-fluid section {
     padding: 0px;
+}
+
+.two-layer-left,
+.two-layer-right {
+    display: inline-block;
+    max-width: 49.5%;
+}
+ 
+.two-layer-right {
+    float: right;
 }

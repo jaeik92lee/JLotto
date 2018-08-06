@@ -30,7 +30,7 @@ router.get("/legends", function(req, res, next) {
 /************************
  *    TEN TIMES DATA    *
  ************************/
-router.get("/legends/tentimes", function(req, res, next) {
+router.get("/tentimes/legends", function(req, res, next) {
   lotto.getTentimesLegends([], function(err, rows) {
     if(err) res.json(err);
     else res.json(rows);
@@ -58,6 +58,12 @@ router.get("/remain/tentimes", function(req, res, next) {
   });
 });
 
+router.get("/tentimes/datas", function(req, res, next) {
+  lotto.getTentimesDatas([], function(err, rows) {
+    if(err) res.json(err);
+    else res.json(rows);
+  });
+});
 
 
 router.get('/no', function(req, res, next) {

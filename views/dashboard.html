@@ -45,38 +45,13 @@
             </nav>
         </header>
 
-
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - Desktop  -->
-        <!-- ============================================================== -->
-        <aside class="left-sidebar">
-            <div class="scroll-sidebar">
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="#total_sum_chart" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">합계</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="#except_chart" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">최근 10회 번호 수</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="#low_high_chart" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Low & High</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="#odd_even_chart" aria-expanded="false"><i class="mdi mdi-emoticon"></i><span class="hide-menu">홀수 / 짝수</span></a>
-                        </li>
-                    </ul>
-                    <div class="text-center m-t-30">
-                        <a href="https://wrappixel.com/templates/materialpro/" class="btn waves-effect waves-light btn-warning hidden-md-down"> Upgrade to Pro</a>
-                    </div>
-                </nav>
-            </div>
-        </aside>
-
-
         <div class="page-wrapper">
             <div class="container-fluid">
 
                 <!-- ============================================================== -->
                 <!-- JLotto Charts  ( SUM / EXCEPTION / LOW & HIGH / ODD & EVEN ) -->
                 <!-- ============================================================== -->
-                <section id="total_sum_chart" class="col-lg-12 col-md-12 lotto-section">
+                <section id="total_sum_chart" class="col-lg-12 col-md-12 lotto-section two-layer-left">
                     <div class="card">
                         <div class="card-block">
                             <div class="row">
@@ -96,7 +71,7 @@
                     </div>
                 </section>
 
-                <section id="except_chart" class="col-lg-12 col-md-12 lotto-section">
+                <section id="except_chart" class="col-lg-12 col-md-12 lotto-section two-layer-right">
                     <div class="card">
                         <div class="card-block">
                             <div class="row">
@@ -116,7 +91,8 @@
                     </div>
                 </section>
 
-                <section id="low_high_chart" class="col-lg-12 col-md-12 lotto-section">
+
+                <section id="low_high_chart" class="col-lg-6 col-md-6 lotto-section two-layer-left">
                     <div class="card">
                         <div class="card-block">
                             <div class="row">
@@ -136,7 +112,7 @@
                     </div>
                 </section>
                     
-                <section id="odd_even_chart" class="col-lg-12 col-md-12 lotto-section">
+                <section id="odd_even_chart" class="col-lg-6 col-md-6 lotto-section two-layer-right">
                     <div class="card">
                         <div class="card-block">
                             <div class="row">
@@ -242,10 +218,8 @@
 
     <script src="/javascripts/Chart.bundle.min.js"></script>
     <script src="/javascripts/chart/sum.js"></script>
-    <script src="/javascripts/chart/remain.js"></script>    
-    <script src="/javascripts/chart/lowhigh.js"></script>
-    <script src="/javascripts/chart/oddeven.js"></script>
-    <script src="/javascripts/lotto/recommend.js"></script>
+    <script src="/javascripts/chart/tentimes.js"></script>
+    <!-- <script src="/javascripts/lotto/recommend.js"></script> -->
 </body>
 
 </html>
