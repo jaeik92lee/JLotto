@@ -20,7 +20,9 @@ router.post("/getall", function(req, res, next) {
 
     recommendVO.getAll(params, function(err, rows) {
         if(err) res.json(err);
-        else res.json(rows);
+        else {
+            res.json(rows);
+        }
     });
 });
 

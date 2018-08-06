@@ -1,4 +1,4 @@
-var tentimes = (function (){
+var tentimes = (function (window){
 
     const   START_LOTTO_NUM = 1,
             END_LOTTO_NUM = 45,
@@ -232,10 +232,25 @@ var tentimes = (function (){
         return result;
     }
 
+
+
+
+
+    /***************************
+    *       WINNER NUMS        *
+    ****************************/
+    drawWinnerTable = (winner_remain_datas) => {
+
+    }
+
+    drawWinnerCard = (winner_datas) => {
+
+    }
+
     draw = () => {
         var legends     = getTentimesLegends(),
             datas       = getTentimesDatas();
-        
+
         var remain_legends  = getRemainLegend(),
             remain_datas    = getRemainDatas(datas.nums),
             colors          = setBackgroundColor(remain_datas);    
@@ -246,6 +261,6 @@ var tentimes = (function (){
     }
 
     return { draw }
-}());
+}(window));
 
 tentimes.draw();

@@ -24,24 +24,24 @@ var LottoVO = {
                  values(?)", [params], callback);
     },
 
-    getSumTotal: function(params, callback) {
+    getTotalDatas: function(params, callback) {
         return db.query(
             "select                 \
-                lorder as legend,    \
-                sum                 \
-            from                    \
-                lotto_nums;", params, callback)
-    },
-
-    getAvgTotal: function(params, callback) {
-        return db.query(
-            "select                 \
-                lorder as legend,    \
+                num1,               \
+                num2,               \
+                num3,               \
+                num4,               \
+                num5,               \
+                num6,               \
+                lorder as legend,   \
+                sum,                \
                 lavg as avg         \
             from                    \
-                lotto_nums", params, callback);
+                lotto_nums          \
+            order by                \
+                lorder desc;", params, callback)
     },
-
+ 
     getLegend: function(params, callback) {
         return db.query(
             "select                 \
@@ -82,55 +82,7 @@ var LottoVO = {
                 lorder  desc    \
             limit " + TEN_TIMES_COUNT, params, callback);
     },
-
-    getTentimesOddEven: function(params, callback) {
-        return db.query(
-            "select         \
-                odd,        \
-                even        \
-            from            \
-                lotto_nums  \
-            order by        \
-                lorder desc \
-            limit " + TEN_TIMES_COUNT, params, callback);
-    },
-
-    getTenTimesLowHigh: function(params, callback) {
-        return db.query(
-            "select         \
-                low,        \
-                high        \
-            from            \
-                lotto_nums  \
-            order by        \
-                lorder desc \
-            limit " + TEN_TIMES_COUNT, params, callback);
-    },
-
-    getTenTimesRemain: function(params, callback) {
-        return db.query(
-            "select         \
-                num1,      \
-                num2,      \
-                num3,      \
-                num4,      \
-                num5,      \
-                num6       \
-            from            \
-                lotto_nums  \
-            order by        \
-                lorder desc \
-            limit " + TEN_TIMES_COUNT, params, callback);
-    },
-
-    getNoOrder: function(params, callback) {
-        return db.query(
-            "select     \
-                lorder  \
-            from        \
-                lotto_nums", params, callback);
-    },
-
+  
 
 
  };

@@ -3,6 +3,10 @@
     margin: 0px !important;
 }
 
+.container-fluid {
+    width: 1560px;
+}
+
 .container-fluid section {
     padding: 0px;
 }
@@ -10,9 +14,80 @@
 .two-layer-left,
 .two-layer-right {
     display: inline-block;
-    max-width: 49.5%;
+    width: 49.5%;
 }
  
 .two-layer-right {
     float: right;
+}
+
+.jlotto-header {
+    font-weight: bold;
+    color: #fff;
+    font-size: 24px;
+}
+
+.winner-container {
+    text-align: center;
+}
+
+.winner-container .card-block {
+    font-size: 12px;
+    padding: 0px;
+}
+
+.winner-container .card-block table {
+    width: 100%;
+    text-align: center;
+}
+
+.winner-container table tr td {
+    padding: 0px;   
+    color: rgb(222, 103, 101);    
+    font-weight: bold;
+}
+
+.winner-container table tr td span {
+    max-width: 18px;
+}
+
+.winner-container .card-num .active {
+    background: #000;
+    color: #000;
+    padding: 6px 8px;
+}
+
+.winners-card {
+    width: 240px;
+    height: 450px;
+    display: inline-block;
+    justify-content: space-between;
+    border-color: rgb(222, 103, 101) !important;
+    margin: 10px 5px;
+}
+
+.winners-card .card-header {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#winner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.winner-nums .card-title {
+    margin: 30px 0px 10px 7px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.card-title,
+.card-subtitle {
+    font-weight: bold;
+}
+
+table thead th,
+table tbody tr {
+    text-align: center;
 }
