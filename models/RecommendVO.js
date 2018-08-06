@@ -6,12 +6,12 @@ var RecommendVO = {
         return db.query(
             "insert into            \
                 recommend_nums(     \
-                    num_1,          \
-                    num_2,          \
-                    num_3,          \
-                    num_4,          \
-                    num_5,          \
-                    num_6,          \
+                    num1,          \
+                    num2,          \
+                    num3,          \
+                    num4,          \
+                    num5,          \
+                    num6,          \
                     sum,            \
                     lavg,           \
                     low,            \
@@ -24,18 +24,16 @@ var RecommendVO = {
     getAll: function(params, callback) {
         return db.query(
             "select             \
-                num_1,          \
-                num_2,          \
-                num_3,          \
-                num_4,          \
-                num_5,          \
-                num_6           \
+                num1,           \
+                num2,           \
+                num3,           \
+                num4,           \
+                num5,           \
+                num6            \
             from                \
                 recommend_nums  \
-            where               \
-                sum >= ?        \
-            and                 \
-                sum <= ?        \
+            where sum           \
+                between ? and ? \
             and                 \
                 low = ?         \
             and                 \

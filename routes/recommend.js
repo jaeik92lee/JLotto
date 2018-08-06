@@ -15,13 +15,39 @@ router.post("/getall", function(req, res, next) {
         req.body.even
     ];
 
-    console.log("[ RECOMMEND ROUTER ]");
-    console.log(params);
-
     recommendVO.getAll(params, function(err, rows) {
         if(err) res.json(err);
         else {
-            res.json(rows);
+            const   SECTION_COUNT = 10,
+                    RANDOM_SELECT_COUNT = 5;
+
+            var result      = [],
+                section     = [],
+                isContain   = [];
+
+            var length = rows.length,
+                start_num, end_num, random_idx;
+
+            for( i=0 ; i<SECTION_COUNT ; i++ ) {
+                start_num = 0;
+                end_num = Math.floor(length / 5);
+
+                section = [];
+                for( var j=0 ; j<RANDOM_SELECT_COUNT ; j++ ) {
+                    do {
+                        random_idx = Math.ceil((Math.random() * end_num) + start_num);
+                    } while(isContain.includes(random_idx));
+                    
+                    isContain.push(random_idx);
+
+                    section.push(rows[random_idx]);
+                    start_num += end_num;
+                }
+
+                result.push(section);
+            }
+            
+            res.json(result);
         }
     });
 });

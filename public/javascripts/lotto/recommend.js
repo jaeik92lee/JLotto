@@ -132,10 +132,10 @@ var recommend = (function(){
             result = [],
             num_count = [];
         
-        for( i=START_LOTTO_NUM ; i<=END_LOTTO_NUM ; i++ ) {
+        for( i=START_LOTTO_NUM ; i<=END_LOTTO_NUM + 1 ; i++ ) {
             num_count.push(0);
         }
-
+ 
         for( i=0 ; i<tentimes_data.length ; i++ ) {
             for( j=0 ; j<tentimes_data[i].length ; j++ ) {
                 num_count[tentimes_data[i][j]]++;
@@ -162,7 +162,7 @@ var recommend = (function(){
                 except_nums.push(i + 1);
             }
         }
-
+ 
         var sum_start = 140,
             sum_end = 149,
             low = 2,
@@ -194,7 +194,6 @@ var recommend = (function(){
         });
 
         var isException = false;
-
         for( var i=0 ; i<nums.length ; i++ ) {
             isException = false;
             for( var j=0 ; j<except_nums.length ; j++ ) {
