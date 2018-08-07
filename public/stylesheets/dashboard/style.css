@@ -22,23 +22,12 @@ Author: Themedesigner
 Email: niravjoshi87@gmail.com
 File: scss
 */
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
 /*Theme Colors*/
 /*bootstrap Color*/
 /*Light colors*/
 /*Normal Color*/
 /*Extra Variable*/
 /*Preloader*/
-@import url(./icons/font-awesome.min.css);
-@import url(./icons/simple-line-icons.css);
-@import url(./icons/weather-icons.min.css);
-@import url(./icons/linea.css);
-@import url(./icons/themify-icons.css);
-@import url(./icons/flag-icon.min.css);
-@import url(./icons/materialdesignicons.min.css);
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
-@import url(./spinners.css);
-@import url(./animate.css);
 .preloader {
   width: 100%;
   height: 100%;

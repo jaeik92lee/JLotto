@@ -91,3 +91,83 @@ table thead th,
 table tbody tr {
     text-align: center;
 }
+
+.top-navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.top-navbar .btn {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.select-container .blobselect {
+    width: 170px;
+}
+
+.select-container {
+    display: flex;
+    float: left;
+    align-items: flex-end;
+}
+
+.select-section {
+    margin-right: 50px;
+}
+
+.select-container .blobselect-item {
+    text-align: center;
+}
+
+.select-container #btn-recommend {
+    max-height: 50px;
+    margin-bottom: 2px;
+}
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.loading-bar {
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    border-radius: 4px;
+    animation: loading 1s ease-in-out infinite;
+}
+  
+.loading-bar:nth-child(1) {
+    background-color: #3498db;
+    animation-delay: 0;
+}
+
+.loading-bar:nth-child(2) {
+    background-color: #c0392b;
+    animation-delay: 0.09s;
+}
+
+.loading-bar:nth-child(3) {
+    background-color: #f1c40f;
+    animation-delay: .18s;
+}
+  
+.loading-bar:nth-child(4) {
+    background-color: #27ae60;
+    animation-delay: .27s;
+}
+
+@keyframes loading {
+    0% { transform: scale(1); }
+    20% { transform: scale(1, 2.2); }
+    40% { transform: scale(1); }
+}
+
+.loading { 
+    display: none;
+}
+  

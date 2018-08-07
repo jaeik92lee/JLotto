@@ -71,7 +71,7 @@ var LottoVO = {
                 num5,   \
                 num6,   \
                 sum,    \
-                lavg,    \
+                lavg as avg,    \
                 low,    \
                 high,   \
                 odd,    \

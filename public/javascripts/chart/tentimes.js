@@ -248,8 +248,13 @@ var tentimes = (function (window){
     }
 
     draw = () => {
-        var legends     = getTentimesLegends(),
-            datas       = getTentimesDatas();
+        
+        var tentimes_storage = localStorage.tentimes,
+            legends     = getTentimesLegends(),
+            datas       = tentimes_storage == null || tentimes_storage.length == 0 ? getTentimesDatas() : JSON.parse(tentimes_storage);
+
+        if( tentimes_storage == null || tentimes_storage == undefined ) 
+            localStorage.setItem("tentimes", JSON.stringify(datas));
 
         var remain_legends  = getRemainLegend(),
             remain_datas    = getRemainDatas(datas.nums),

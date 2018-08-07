@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var lotto_crawler = require('./lotto_num_crawler');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {  
-  // lotto_crawler.run();
-  res.render('dashboard', { title: 'Express' });
+  res.render("index");
 });
+
+router.get("/recommend", function(req, res, next) {
+  res.render("recommend");
+});
+
 
 module.exports = router;
 

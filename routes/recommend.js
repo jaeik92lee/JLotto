@@ -6,6 +6,9 @@ var recommendVO = require('./../models/RecommendVO');
  *      Recommend DATA      *
  ****************************/
 router.post("/getall", function(req, res, next) {
+    
+    const MIN_RESULT_COUNT = 50;
+
     var params = [
         req.body.sum_start,
         req.body.sum_end,
@@ -17,7 +20,9 @@ router.post("/getall", function(req, res, next) {
 
     recommendVO.getAll(params, function(err, rows) {
         if(err) res.json(err);
-        else {
+        else {        
+            if( rows.length < MIN_RESULT_COUNT ) res.json(rows);
+                
             const   SECTION_COUNT = 10,
                     RANDOM_SELECT_COUNT = 5;
 
